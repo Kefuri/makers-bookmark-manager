@@ -1,9 +1,13 @@
 require 'sinatra/base'
 
- class App < Sinatra::Base
+class App < Sinatra::Base
+  get '/' do
+    erb :index
+  end
 
-    get '/' do
-        erb :index
-    end
- end
+  get '/bookmarks' do
+    @bookmarks = Bookmark.all
+    erb :bookmarks
+  end
+end
  
